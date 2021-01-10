@@ -43,6 +43,7 @@ As such it's a fair practice to detect inconsistencies in sets of numbers using 
     - 2943.6 has fsd=2
 
 #References:
+
 **Wikipedia**
 https://en.wikipedia.org/wiki/Benford's_law
 
