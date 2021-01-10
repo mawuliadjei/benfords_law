@@ -17,7 +17,7 @@ pip install -U benfords-law
 This means that in a set of numbers; eg. populations of countries in the world, the first digit of the number is most likely to be 1. And following that, the probability that the first digit is 2, is less that that of one, but greater than all the rest and so on and so forth.
 
 In fact, this expectation from Benford's Law follows a very specific distribution that is shown below:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Benford's Law Distribution")
+![Benford's Law Diagram](https://github.com/mawuliadjei/benfords_law/blob/main/images/benfords_law_distribution.png "Benford's Law Distribution")
  
 As such, using the example of country populations in the world, the distribution of first significant digits against the expected distribution from Benford's Law can be seen as follows:
 -- insert graph here
