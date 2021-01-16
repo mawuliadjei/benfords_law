@@ -167,9 +167,3 @@ class BenfordsLaw:
         self.get_distribution()
         self.apply_visual_test()
         self.apply_chi_sq_test()
-
-# d = np.random.randint(low=1, high=100, size=1000)
-# b = BenfordsLaw(d)
-d = pd.read_csv('/Users/mawuliadjei/Downloads/population-figures-by-country-csv_csv.csv')
-b = BenfordsLaw(d.Year_2016)
-b.apply_benfords_law()
