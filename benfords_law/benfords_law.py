@@ -20,15 +20,19 @@ temp_actuals = {
 
 
 class BenfordsLaw:
+    """
+    Newcomb-Benford's Law Analysis
+
+    Takes a list/array of numbers representing some real world dataset of numbers
+    and analyses to asses whether the data fit's the Newcomb-Benford's Law (also known as
+    the Law of Analogous Numbers) by either running a statistical goodness-of-fit test, or
+    plotting the actual distribution of first-significant digits in the dataser against the
+    expected distribution according to Benford's Law.
+
+    """
     def __init__(self, data: Union[list, np.array, pd.Series]):
         """
-        Newcomb-Benford's Law Analysis
-
-        Takes a list/array of numbers representing some real world dataset of numbers
-        and analyses to asses whether the data fit's the Newcomb-Benford's Law (also known as
-        the Law of Analogous Numbers) by either running a statistical goodness-of-fit test, or
-        plotting the actual distribution of first-significant digits in the dataser against the
-        expected distribution according to Benford's Law.
+        Initialize Benford's Law Analysis Object
 
         :param data: Dataset of numbers to test Benford's Law against.
 
