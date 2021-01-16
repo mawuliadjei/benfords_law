@@ -5,7 +5,7 @@ A python package for testing if a dataset of numbers passes Benford's law; also 
 ```
 pip install -U benfords-law
 ```
-##
+## Usages
 ```
 >> import numpy as np
 >>
@@ -16,11 +16,11 @@ pip install -U benfords-law
 >> benfords = BenfordsLaw(data)
 >> benfords.apply_benfords_law()
 Chi-squared test failed with statistic: 998.0013682427352 and p-value: 4.032015415461028e-210
->> Benford's Test Image Below:
+>> # Benford's Test Image Below:
 ```
 ![Failed Benfords Test with Random Numbers](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/example_benford_failed.png)
 
-**Dependencies**
+### Dependencies
 - numpy==1.17.1
 - pandas==0.25.1
 - scipy==1.6.0
@@ -37,14 +37,19 @@ As such, using the example of country populations in the world, the distribution
 ![2016 National Populations Benfords Test](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/populations_benfords_law.png)
 
 This phenomenon is pervasive in many extensive sets of numbers. Examples are:
--- insert list of sets here
+- Earthquake Magnitudes
+- Dow Jones Industrial Average from 1990– 1993
+- 3,141 county populations from the 1990 U.S. Census
+- Distance of stars from earth in light years
+- Most common iphone passcodes
+
 
 The explanations for this law are many and debated. However there are some key (non-exhaustive) characteristics of these sets of numbers. These sets generally:
 1. Occur 'naturally' without human manipulation
 2. Occur in many orders of magnitude.
 3. Have some exponentation going on
 
-Why should we care? Glad you asked. If these numbers are naturally occurring, then if a set of numbers that should follow Benford's law does not, then there is cause to believe that there's something unscrupulous going on. For example, in cases where elections have been rigged, you'll find that numbers tallied do not follow Benford's Law. 
+Why should we care? Glad you asked. If these numbers are naturally occurring, then if a set of naturally occuring set of numbers does not follow Benford's law , then there is cause to believe that there's something unscrupulous going on. For example, in cases where elections have been rigged, you'll find that numbers tallied do not follow Benford's Law. 
 
 As such it's a fair practice to detect inconsistencies in sets of numbers using Benford's Law. Examples of real work applications of Benford's Law in manipulation/fraud/misleading-data detection include:
 1. [National COVID-19 Tracking Errors/Inconsitencies](https://www.nature.com/articles/d41586-020-01565-5)
