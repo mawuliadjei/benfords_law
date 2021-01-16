@@ -7,11 +7,19 @@ pip install -U benfords-law
 ```
 ##
 ```
->> data = [64323,2123,52323,132,5467,1285,987]
+>> import numpy as np
+>>
 >> from benfords_law import BenfordsLaw
->> benfords = BenfordsLaw(data)
 >> 
+>> # initialize array with random numbers that will fail Benford's Law
+>> data = np.random.randint(low=100, high=1000000, size=1000)
+>> benfords = BenfordsLaw(data)
+>> benfords.apply_benfords_law()
+Chi-squared test failed with statistic: 998.0013682427352 and p-value: 4.032015415461028e-210
+>> Benford's Test Image Below:
 ```
+![Failed Benfords Test with Random Numbers](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/example_benford_failed.png)
+
 **Dependencies**
 - numpy==1.17.1
 - pandas==0.25.1
@@ -26,7 +34,7 @@ In fact, this expectation from Benford's Law follows a very specific distributio
 ![](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/benfords_law_distribution.png)
  
 As such, using the example of country populations in the world, the distribution of first significant digits against the expected distribution from Benford's Law can be seen as follows:
--- insert graph here
+![2016 National Populations Benfords Test](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/populations_benfords_law.png)
 
 This phenomenon is pervasive in many extensive sets of numbers. Examples are:
 -- insert list of sets here
