@@ -20,7 +20,7 @@ setup(
     license="MIT",
     keywords='Newcomb Benford Analogous-Numbers Statistics Testing',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         "License :: OSI Approved :: MIT License",
