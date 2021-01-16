@@ -1,4 +1,5 @@
-from typing import Union, Tuple
+from typing import Union, Tuple, Dict
+from copy import deepcopy
 
 import numpy as np
 import pandas as pd
@@ -19,8 +20,19 @@ temp_actuals = {
 
 
 class BenfordsLaw:
-    def __init__(self,
-                 data: Union[list, np.array, pd.Series]):
+    def __init__(self, data: Union[list, np.array, pd.Series]):
+        """
+        Newcomb-Benford's Law Analysis
+
+        Takes a list/array of numbers representing some real world dataset of numbers
+        and analyses to asses whether the data fit's the Newcomb-Benford's Law (also known as
+        the Law of Analogous Numbers) by either running a statistical goodness-of-fit test, or
+        plotting the actual distribution of first-significant digits in the dataser against the
+        expected distribution according to Benford's Law.
+
+        :param data: Dataset of numbers to test Benford's Law against.
+
+        """
         self.expected_distribution = {
             '1': 0.301,
             '2': 0.176,
@@ -38,6 +50,9 @@ class BenfordsLaw:
             # enforce that all numbers passed can be evaluated into a numeric representation
             # handles the non-essential case where numbers are negative
             self.data = np.array([abs(float(x)) for x in data])
+
+            # remove unnecessary null values if any
+            self.data = self.data[np.logical_not(np.isnan(self.data))]
         except ValueError:
             print('All values must be numerical')
             raise
@@ -54,20 +69,34 @@ class BenfordsLaw:
     def _extract_fsd(self):
         self.fsd = [self._get_fsd(number) for number in self.data]
 
-    def get_counts(self):
-        temp_counts = temp_actuals
+    def get_counts(self) -> Dict[str, int]:
+        """
+        Get frequency of first significant digits passed in the dataset.
+
+        :return: key pair value of each first significant digit and it's respective frequency
+
+        """
+        temp_counts = deepcopy(temp_actuals)
         self.fsd_counts = dict((x, self.fsd.count(x)) for x in set(self.fsd))
         temp_counts.update(self.fsd_counts)
         self.fsd_counts = temp_counts
+        return self.fsd_counts
 
-    def get_distribution(self):
-        temp_distribution = temp_actuals
+    def get_distribution(self) -> Dict[str, float]:
+        """
+        Get percentage distribution of first significant digits passed in the dataset
+
+        :return: key pair value of each first significant digit and it's
+                 respective percentage
+
+        """
+        temp_distribution = deepcopy(temp_actuals)
         self.fsd_distribution = dict((x, (self.fsd.count(x) / len(self.fsd))) for x in set(self.fsd))
         temp_distribution.update(self.fsd_distribution)
         self.fsd_distribution = temp_distribution
+        return self.fsd_distribution
 
     def prepare_actual_distribution(self,
-                                    return_values: bool = False,
                                     get_fsd_counts: bool = False):
         self._extract_fsd()
         self.get_distribution()
@@ -76,6 +105,12 @@ class BenfordsLaw:
 
     def apply_visual_test(self,
                           figsize: Tuple[int, int] = (15, 7)):
+        """
+        Plot first significant digit distribution against the expectation of Benford's Law
+
+        :param figsize: Dimensions of the figure to plot in the format: (width, height)
+
+        """
         barWidth = 0.25
 
         r1 = np.arange(len(self.expected_distribution.values()))
@@ -95,12 +130,23 @@ class BenfordsLaw:
 
         # Create legend & Show graphic
         plt.legend()
+        plt.title("First Significant Digit distribution vs Expected Benford's Law Distribution")
         plt.show()
 
     def apply_chi_sq_test(self,
-                          alpha=0.05):
+                          alpha=0.05) -> Tuple[float, float]:
+        """
+        Apply Chi-Squared Goodness of fit test to test if the dataset's first significant digit
+        distribution meets the expectation of Benford's Law. It passes the test if the
+        p-value is greater than specified alpha and fails otherwise.
+
+        :param alpha: Optional. Specifies the required significance level based on which the null hypothesis is
+        rejected or failed to reject. Default = 0.05
+
+        :return: Chi-Squared statistic, p-value
+        """
         statistic, p_value = chisquare(f_obs=list(self.fsd_counts.values()), f_exp=list(self.expected_counts.values()))
-        if p_value < alpha:
+        if p_value > alpha:
             test_status = 'passed'
         else:
             test_status = 'failed'
@@ -108,8 +154,18 @@ class BenfordsLaw:
         return statistic, p_value
 
     def apply_benfords_law(self):
+        """
+        Runs all relevant processes and then applies all tests to input dataset
+
+        """
         self._extract_fsd()
         self.get_counts()
         self.get_distribution()
         self.apply_visual_test()
         self.apply_chi_sq_test()
+
+# d = np.random.randint(low=1, high=100, size=1000)
+# b = BenfordsLaw(d)
+d = pd.read_csv('/Users/mawuliadjei/Downloads/population-figures-by-country-csv_csv.csv')
+b = BenfordsLaw(d.Year_2016)
+b.apply_benfords_law()

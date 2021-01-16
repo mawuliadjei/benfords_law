@@ -5,7 +5,13 @@ A python package for testing if a dataset of numbers passes Benford's law; also 
 ```
 pip install -U benfords-law
 ```
-
+##
+```
+>> data = [64323,2123,52323,132,5467,1285,987]
+>> from benfords_law import BenfordsLaw
+>> benfords = BenfordsLaw(data)
+>> 
+```
 **Dependencies**
 - numpy==1.17.1
 - pandas==0.25.1
@@ -17,7 +23,7 @@ pip install -U benfords-law
 This means that in a set of numbers; eg. populations of countries in the world, the first digit of the number is most likely to be 1. And following that, the probability that the first digit is 2, is less that that of one, but greater than all the rest and so on and so forth.
 
 In fact, this expectation from Benford's Law follows a very specific distribution that is shown below:
-![Benford's Law Diagram](https://github.com/mawuliadjei/benfords_law/blob/main/images/benfords_law_distribution.png "Benford's Law Distribution")
+![](https://raw.githubusercontent.com/mawuliadjei/benfords_law/main/images/benfords_law_distribution.png)
  
 As such, using the example of country populations in the world, the distribution of first significant digits against the expected distribution from Benford's Law can be seen as follows:
 -- insert graph here
@@ -42,7 +48,7 @@ As such it's a fair practice to detect inconsistencies in sets of numbers using 
     - 0.0004562 has fsd=4
     - 2943.6 has fsd=2
 
-#References:
+#References
 
 **Wikipedia**
 https://en.wikipedia.org/wiki/Benford's_law
