@@ -9,9 +9,10 @@ Welcome to benfords_law documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-intro
-benfords_law
-examples
+
+   intro
+   benfords_law
+   examples
 
 Indices and tables
 ==================
