@@ -1,9 +1,6 @@
 benfords\_law package
 =====================
 
-Submodules
-----------
-
 benfords\_law.benfords\_law module
 ----------------------------------
 

@@ -24,17 +24,17 @@ class BenfordsLaw:
     Newcomb-Benford's Law Analysis
 
     Takes a list/array of numbers representing some real world dataset of numbers
-    and analyses to asses whether the data fit's the Newcomb-Benford's Law (also known as
-    the Law of Analogous Numbers) by either running a statistical goodness-of-fit test, or
-    plotting the actual distribution of first-significant digits in the dataser against the
-    expected distribution according to Benford's Law.
+    and analyzes to asses whether it fits the Newcomb-Benford's Law (also known as
+    the Law of Analogous Numbers). Fit is currently determined by either running a statistical goodness-of-fit test,
+    or by running a visual test by plotting the actual distribution of first-significant digits in the dataset
+    against the expected distribution according to Benford's Law.
 
     """
     def __init__(self, data: Union[list, np.array, pd.Series]):
         """
-        Initialize Benford's Law Analysis Object
+        Initialize Benford's Law Analysis object
 
-        :param data: Dataset of numbers to test Benford's Law against.
+        :param data: Dataset of numbers to test Newcomb-Benford's Law against.
 
         """
         self.expected_distribution = {

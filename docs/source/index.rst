@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ``benfords_law`` documentation!
+Welcome to ``benfords_law`` documentation
 ========================================
 
 .. toctree::
@@ -12,6 +12,7 @@ Welcome to ``benfords_law`` documentation!
 
    intro
    benfords_law
+   modules
    examples
 
 Indices and tables

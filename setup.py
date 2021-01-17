@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="benfords_law",
-    version="1.0.0a3",
+    version="1.0.0b1",
     description="Apply and run tests of Newcomb-Benford's Law on provided data",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -28,7 +28,7 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     project_urls={
-        # 'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
+        'Documentation': 'https://benfords-law.readthedocs.io/',
         # 'Funding': 'https://donate.pypi.org',
         # 'Say Thanks!': 'http://saythanks.io/to/example',
         'Source': 'https://github.com/mawuliadjei/benfords_law/',
