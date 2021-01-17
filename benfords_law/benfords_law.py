@@ -144,8 +144,7 @@ class BenfordsLaw:
         distribution meets the expectation of Benford's Law. It passes the test if the
         p-value is greater than specified alpha and fails otherwise.
 
-        :param alpha: Optional. Specifies the required significance level based on which the null hypothesis is
-        rejected or failed to reject. Default = 0.05
+        :param alpha: Optional. Specifies the required significance level based on which the null hypothesis is rejected or failed to reject. Default = 0.05
 
         :return: Chi-Squared statistic, p-value
         """
