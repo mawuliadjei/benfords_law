@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="benfords_law",
-    version="1.0.0b1",
+    version="1.0.0rc1",
     description="Apply and run tests of Newcomb-Benford's Law on provided data",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -20,7 +20,7 @@ setup(
     license="MIT",
     keywords='Newcomb Benford Analogous-Numbers Statistics Testing',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         "License :: OSI Approved :: MIT License",
