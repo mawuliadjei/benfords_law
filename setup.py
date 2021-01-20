@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="benfords_law",
-    version="1.0.0rc1",
+    version="1.0.0rc5",
     description="Apply and run tests of Newcomb-Benford's Law on provided data",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -39,7 +39,7 @@ setup(
     install_requires=[
         'numpy==1.17.1',
         'pandas==0.25.1',
-        'scipy==1.6.0',
+        'scipy>=1.5.4',
         'matplotlib==3.3.3',
     ],
     # entry_points={
