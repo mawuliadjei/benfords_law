@@ -73,7 +73,6 @@ class BenfordsLaw:
 
     def _extract_fsd(self):
         self.fsd = [self._get_fsd(number) for number in self.data if self._get_fsd(number) is not None]
-        print(None in self.fsd)
 
     def get_counts(self) -> Dict[str, int]:
         """
